@@ -34,13 +34,13 @@ session = Session()
 def initialize_database():
     if not session.query(ObjectDB).first():  # Если база пуста
         session.add_all([
-            ObjectDB(name="Книга", width_cm=15.0, height_cm=21.0),
-            ObjectDB(name="Телефон", width_cm=7, height_cm=15.0),
+            ObjectDB(name="Книга", width_cm=15.0, height_cm=21.0), # Настройка размеров объекта
+            ObjectDB(name="Телефон", width_cm=7, height_cm=15.0), # Тоже настройка размеров объекта
         ])
         session.commit()
 
 
-def check_object_match(width_cm, height_cm, tolerance=1.0):
+def check_object_match(width_cm, height_cm, tolerance=1.0): # "tolerance" - допуск
     objects = session.query(ObjectDB).all()
     for obj in objects:
         if (abs(obj.width_cm - width_cm) <= tolerance and
