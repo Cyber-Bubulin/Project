@@ -1,6 +1,5 @@
 import cv2
 import numpy as np
-from statistics import mean
 from sqlalchemy import create_engine, Column, Float, String
 from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.orm import sessionmaker
